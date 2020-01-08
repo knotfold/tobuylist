@@ -14,14 +14,16 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'ToBuyList',
       theme: ThemeData(
+        
         cardTheme: CardTheme(
           elevation: 0
         ),
         primaryColor: primaryColor,
         accentColor: primaryColor,
+        buttonColor: primaryColor,
         buttonTheme: ButtonThemeData(
-          buttonColor: primaryColor,
-          shape: BeveledRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          buttonColor: secondaryColor,
+          shape: BeveledRectangleBorder(borderRadius: BorderRadius.circular(5), side: BorderSide(color: secondaryColor)),
           
         ),
         scaffoldBackgroundColor: Colors.white,
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
         // primaryColor: primaryColor,
         // primaryColorLight: primaryLight,
         primaryTextTheme: GoogleFonts.lancelotTextTheme(TextTheme()),
-        textTheme: GoogleFonts.titilliumWebTextTheme(TextTheme(body1: TextStyle(fontSize: 15), button: TextStyle(fontSize: 15) , body2: TextStyle(fontSize: 18))),
+        textTheme: GoogleFonts.titilliumWebTextTheme(TextTheme(body1: TextStyle(fontSize: 15), button: TextStyle(fontSize: 15,color: primaryColor) , body2: TextStyle(fontSize: 18), )),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           shape: BeveledRectangleBorder(
             borderRadius: BorderRadius.circular(10),

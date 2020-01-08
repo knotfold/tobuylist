@@ -8,28 +8,58 @@ class ToBuyList extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return StreamBuilder(
-      stream: Firestore.instance.collection('productos').where('estado', isEqualTo: 'faltante' ).snapshots(),
-      builder: (context, snapshot) {
-        if(!snapshot.hasData) return const CircleAvatar();
-        // Producto producto = Producto.fromDS(snapshot.data.documents[0]);
-       
-        return ListView.builder(
-        itemCount: snapshot.data.documents.length,
-        physics: ScrollPhysics(parent: NeverScrollableScrollPhysics()),
-        shrinkWrap: true,
-        itemBuilder: (context, index) => ItemCard(producto: Producto.fromDS(snapshot.data.documents[index]),),
-      );
-      }
-    );
+        stream: Firestore.instance
+            .collection('productos')
+            .where('estado', isEqualTo: 'faltante')
+            .snapshots(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) return const CircleAvatar();
+          // Producto producto = Producto.fromDS(snapshot.data.documents[0]);
+
+          return ListView.builder(
+            itemCount: snapshot.data.documents.length,
+            physics: ScrollPhysics(parent: NeverScrollableScrollPhysics()),
+            shrinkWrap: true,
+            itemBuilder: (context, index) => ItemCard(
+              producto: Producto.fromDS(snapshot.data.documents[index]),
+            ),
+          );
+        });
   }
 }
 
 class ItemCard extends StatelessWidget {
   final Producto producto;
-  const ItemCard({
-    Key key,
-    this.producto
-  }) : super(key: key,); 
+  const ItemCard({Key key, this.producto})
+      : super(
+          key: key,
+        );
+
+  Future acceptDialog(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Confirmar compra de producto'),
+          content: Text(
+              'Al hacer click en Aceptar confirma que ya cuenta con este producto en su disposición'),
+          actions: <Widget>[
+            FlatButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: Text('Cancelar'),
+            ),
+            RaisedButton(
+              child: Text('Aceptar'),
+              onPressed: () {
+                producto.ref.updateData({'estado': 'comprado'});
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,13 +78,16 @@ class ItemCard extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     RaisedButton(
-                      onPressed: () => producto.ref.updateData({
-                        'estado' : 'comprado'
-                      }),
+                      onPressed: () => acceptDialog(context),
                       child: Row(
                         children: <Widget>[
-                          Icon(Icons.check_box, size: 18,),
-                          SizedBox(width: 5,),
+                          Icon(
+                            Icons.check_box,
+                            size: 18,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
                           Text('Comprado'),
                         ],
                       ),
