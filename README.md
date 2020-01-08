@@ -1,6 +1,6 @@
 # tobuylist
 
-A new Flutter project.
+In this project we are making a to Buy List as it's name suggests it's a list where you place items that you wish to buy in the future
 
 ## Getting Started
 
