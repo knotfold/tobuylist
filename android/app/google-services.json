@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "74575929569",
+    "firebase_url": "https://tobuylist-fe0a8.firebaseio.com",
+    "project_id": "tobuylist-fe0a8",
+    "storage_bucket": "tobuylist-fe0a8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:74575929569:android:fc7eb5a76e6216e8a257a0",
+        "android_client_info": {
+          "package_name": "com.example.tobuylist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "74575929569-rdd6u4e9j5d1vg7icqetp2cgb6pmcc6o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKwB_8oJJkLaXFrRMP5lSueHq3Dc9T9cU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "74575929569-rdd6u4e9j5d1vg7icqetp2cgb6pmcc6o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
