@@ -59,13 +59,19 @@ class _AppState extends State<App> {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
-      // bottomNavigationBar: MyBottomNavBar(),
+      // bottomNavigationBar: MyBottomNavBar(), Sin Uso
       floatingActionButton: FloatingActionButton(
         onPressed: () => null,
         child: Icon(Icons.add_circle_outline, size: 40,),
       ),
       appBar: AppBar(
-        leading: Icon(Icons.assignment),
+     
+        actions: <Widget>[
+          IconButton(
+            onPressed: () => null,
+            icon: Icon(Icons.assignment),
+          ),
+        ],
         title: Text('ToBuyList'),
       ),
       body: SingleChildScrollView(
