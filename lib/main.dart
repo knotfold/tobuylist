@@ -11,8 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
       debugShowCheckedModeBanner: false,
       title: 'ToBuyList',
+
       theme: ThemeData(
         
         cardTheme: CardTheme(
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
         buttonColor: primaryColor,
         buttonTheme: ButtonThemeData(
           buttonColor: secondaryColor,
-          shape: BeveledRectangleBorder(borderRadius: BorderRadius.circular(5), side: BorderSide(color: secondaryColor)),
+          shape: BeveledRectangleBorder(borderRadius: BorderRadius.circular(10), side: BorderSide(color: secondaryColor)),
           
         ),
         scaffoldBackgroundColor: Colors.white,
@@ -39,7 +41,9 @@ class MyApp extends StatelessWidget {
           shape: BeveledRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
+
           backgroundColor: secondaryDark
+
         ),
         appBarTheme: AppBarTheme(
           iconTheme: IconThemeData(
@@ -58,6 +62,9 @@ class MyApp extends StatelessWidget {
         
       ),
       home: App(),
+      routes: {
+        '/boughtlist' : (BuildContext context) => MegaCorteList(),
+      },
     );
   }
 }

@@ -7,6 +7,7 @@ class Producto {
   String lugar;
   String nombre;
   int precio;
+  int total;
   DocumentReference ref;
 
   Producto.fromDS(DocumentSnapshot data){
@@ -15,7 +16,9 @@ class Producto {
     lugar = data['lugarcompra'] ?? 'idk';
     nombre = data['nombre'] ?? 'idk';
     precio = data['precio'] ?? 0;
+    total = data['total'] ?? 0;
     ref = data.reference;
+    
   }
 
 }
