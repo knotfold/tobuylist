@@ -58,14 +58,33 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-        floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
-        // bottomNavigationBar: MyBottomNavBar(),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => _showDialog(),
-          child: Icon(
-            Icons.add_circle_outline,
-            size: 40,
+
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
+      // bottomNavigationBar: MyBottomNavBar(), Sin Uso
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => null,
+        child: Icon(Icons.add_circle_outline, size: 40,),
+      ),
+      appBar: AppBar(
+     
+        actions: <Widget>[
+          IconButton(
+            onPressed: () => null,
+            icon: Icon(Icons.assignment),
+          ),
+        ],
+        title: Text('ToBuyList'),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          // margin: EdgeInsets.only(top: 80),
+          child: Column(
+            children: <Widget>[
+            
+              ToBuyList()
+            ],
+
           ),
         ),
         appBar: AppBar(
