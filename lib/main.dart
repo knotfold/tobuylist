@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter chame change',
+      title: 'Flutter Demmo',
       theme: ThemeData(
         accentIconTheme: IconThemeData(size: 40),
         iconTheme: IconThemeData(size: 30, color: secondaryDark),
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           shape: BeveledRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
-          backgroundColor: secondaryColor
+          backgroundColor: primaryColor
         ),
         appBarTheme: AppBarTheme(
           textTheme: GoogleFonts.titilliumWebTextTheme(TextTheme(title: TextStyle(color: primaryText, fontSize: 30))),
