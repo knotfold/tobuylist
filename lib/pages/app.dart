@@ -57,12 +57,13 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-      floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
+     
       // bottomNavigationBar: MyBottomNavBar(), Sin Uso
-      floatingActionButton: FloatingActionButton(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () => null,
-        child: Icon(Icons.add_circle_outline, size: 40,),
+        icon: Icon(Icons.add_box),
+        label: Text('Añadir Producto'),
       ),
       appBar: AppBar(
      
