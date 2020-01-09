@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tobuylist/shared/shared.dart';
 import 'package:tobuylist/pages/pages.dart';
+import 'package:tobuylist/shared/showDialog.dart';
 
 class App extends StatefulWidget {
   static const TextStyle optionStyle =
@@ -57,6 +58,7 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
       // bottomNavigationBar: MyBottomNavBar(), Sin Uso
@@ -82,9 +84,56 @@ class _AppState extends State<App> {
             
               ToBuyList()
             ],
+
           ),
         ),
-      )
-    );
+        appBar: AppBar(
+          leading: Icon(Icons.assignment),
+          title: Text('ToBuyList'),
+        ),
+        body: SingleChildScrollView(
+          child: Container(
+            // margin: EdgeInsets.only(top: 80),
+            child: Column(
+              children: <Widget>[ToBuyList()],
+            ),
+          ),
+        ));
+  }
+
+  _showDialog() {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Agregar Producto'),
+            content: SingleChildScrollView(
+              child: Column(
+crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                TextField(
+                  decoration: InputDecoration(labelText: 'Cantidad'),
+                ),
+                TextField(
+                  decoration: InputDecoration(labelText: 'Nombre'),
+                ),
+                TextField(
+                  decoration: InputDecoration(labelText: '¿Dónde Comprar?'),
+                )
+              ],
+              ),
+              
+            ),
+            actions: <Widget>[
+              FlatButton(
+                  child: Text('REGRESAR'),
+                  onPressed: () => Navigator.of(context).pop()),
+              FlatButton(
+                child: Text('AÑADIR'),
+                onPressed: () => null,
+              ),
+            ],
+          );
+        });
   }
 }

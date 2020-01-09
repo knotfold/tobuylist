@@ -11,8 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
       debugShowCheckedModeBanner: false,
       title: 'ToBuyList',
+
       theme: ThemeData(
         
         cardTheme: CardTheme(
@@ -39,7 +41,9 @@ class MyApp extends StatelessWidget {
           shape: BeveledRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
+
           backgroundColor: secondaryDark
+
         ),
         appBarTheme: AppBarTheme(
           iconTheme: IconThemeData(
